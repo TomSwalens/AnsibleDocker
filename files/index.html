@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date and Time</title>
+    <style>
+        #dateTime {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+  <img src="logo.png" alt="logo">
+    <h1>Current Date and Time</h1>
+    <div id="dateTime"></div>
+
+    <script>
+        function updateDateTime() {
+            var currentDate = new Date();
+
+            // Get date components
+            var day = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+            var date = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+             // Get time components
+             var time = currentDate.toLocaleTimeString('en-US', { hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' });
+
+            // Display the date and time
+              document.getElementById('dateTime').innerHTML = day + ', ' + date + ' - ' + time;
+              }
+
+            // Call the function initially and set an interval to update it every second
+              updateDateTime();
+              setInterval(updateDateTime, 1000);
+</script>
+
+
+<h2>Developed by Tom Swalens</h2>
+<a href="./map/map.html">Go to the second page with the current locations shown on a map.</a>
+</body>
+</html>
